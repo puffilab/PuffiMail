@@ -3,9 +3,9 @@
 
 # English
 # PuffiMail Smart Mailbox Sender
+![](https://github.com/puffilab/PuffiMail/blob/main/img/backview3d.png)
 
-
-A smart mailbox sender device based on Seeed Studio XIAO ESP32-C3 and VL53L0X Time-of-Flight distance sensor.  
+A smart mailbox sender device based on ESP32-C3 and VL53L0X Time-of-Flight distance sensor.  
 Features ultra-low power design, deep sleep, multiple wakeup methods (magnetic switch & button), web-based Wi-Fi/MQTT configuration & OTA, MQTT integration, and seamless compatibility with Home Assistant and other smart home platforms.
 
 ## Features
@@ -32,7 +32,7 @@ The device enters AP configuration mode when first powered on, if unconfigured, 
 Web UI supports English, Chinese, and Japanese.
 
 ---
-
+![](https://github.com/puffilab/PuffiMail/blob/main/img/frontview2d.png)
 ## MQTT Topics
 
 - `mailbox-sensor/distance`  — Current distance as JSON, e.g. `{"current": 355, "baseline": 362}`
@@ -67,8 +67,8 @@ Web UI supports English, Chinese, and Japanese.
 ---
 # 日本語
 # PuffiMail スマート郵便受けセンダー
-
-Seeed Studio XIAO ESP32-C3とVL53L0X ToF距離センサーをベースにした、スマート郵便受け検知デバイスです。  
+![](https://github.com/puffilab/PuffiMail/blob/main/img/backview3d.png)
+ESP32-C3とVL53L0X ToF距離センサーをベースにした、スマート郵便受け検知デバイスです。  
 超低消費電力設計、ディープスリープ、マグネットスイッチ・ボタンによる多様なウェイクアップ方式、WebベースのWi-Fi/MQTT設定とOTA、MQTT連携、Home Assistantなどのスマートホームプラットフォームとシームレスに連携できます。
 
 ## 特徴
@@ -95,7 +95,7 @@ Seeed Studio XIAO ESP32-C3とVL53L0X ToF距離センサーをベースにした�
 Web UIは英語・中国語・日本語に対応しています。
 
 ---
-
+![](https://github.com/puffilab/PuffiMail/blob/main/img/frontview2d.png)
 ## MQTTトピック
 
 - `mailbox-sensor/distance`  — 現在の距離(JSON形式)、例: `{"current": 355, "baseline": 362}`
