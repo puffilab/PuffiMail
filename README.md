@@ -1,4 +1,4 @@
-[English](#english) | [日本語](#日本語)
+[English](#english) | [日本語](#日本語) | [中文](#中文)
 
 
 # English
@@ -126,6 +126,69 @@ Web UIは英語・中国語・日本語に対応しています。
 
 **Q:** 対応するスマートホームプラットフォームは？  
 **A:** Home Assistant、openHAB、Node-RED、Domoticzなど、MQTTに対応した全てのプラットフォームで利用可能です。
+
+---
+
+# 中文
+# PuffiMail 智能郵箱發射器
+![](https://github.com/puffilab/PuffiMail/blob/main/img/backview3d.png)
+
+這是一款基於 ESP32-C3 與 VL53L0X ToF（飛行時間）距離感測器的智慧型郵箱發射裝置。  
+擁有超低功耗設計、深度休眠、多種喚醒方式（磁吸開關與按鈕）、網頁式 Wi-Fi/MQTT 設定與 OTA 韌體升級、MQTT 整合，並能無縫對接 Home Assistant 及多種智慧家庭平台。
+
+## 特色功能
+
+- ✉️ **郵件偵測：** 自動測量郵箱內部距離，準確判斷是否有新郵件投遞。
+- 🛌 **超低功耗：** 深度休眠設計，一顆電池可用數個月以上。
+- 🔋 **電池監控：** 低電量自動警告與 MQTT 狀態上報。
+- 🧲 **磁吸開關：** 郵箱開啟/關閉時自動喚醒裝置。
+- 🛠️ **網頁 AP 模式設定：** 支援瀏覽器設定 Wi-Fi、MQTT、OTA 韌體更新與基準距離。
+- 🌏 **多語網頁介面：** 支援英文、中文、日文介面切換。
+- 📦 **MQTT 數據上報：** 完美相容 Home Assistant、Node-RED 等平台。
+- 🔧 **撥片開關邏輯反轉：** 一鍵切換安裝方向，真正即插即用，適應各種安裝場景。
+
+## AP 模式網頁設定
+
+設備於首次啟動、未設定狀態、按鈕連按三下或長按（恢復出廠）時，會自動進入 AP 設定模式。
+
+1. 連接 Wi-Fi：**Smartmailbox_Sender / 12345678**
+2. 瀏覽器開啟網址：`192.168.4.1`
+3. 填寫 Wi-Fi、MQTT 設定，調整基準距離，或進行 OTA 韌體升級
+
+網頁介面支援繁體中文、英文、日文。
+
+---
+![](https://github.com/puffilab/PuffiMail/blob/main/img/frontview2d.png)
+## MQTT 主題
+
+- `mailbox-sensor/distance` — 當前距離（JSON 格式），例：`{"current": 355, "baseline": 362}`
+- `mailbox-sensor/mail_status` — `"new_mail"`、`"empty"` 或 `"unknown"`
+- `mailbox-sensor/battery` — `"normal"` 或 `"low_battery"`
+- `mailbox-sensor/availability` — `"online"`（保留訊息，離線時為 Last Will）
+
+**Home Assistant 可自動將這些主題作為 MQTT 感測器整合！**
+
+---
+
+## OTA 韌體升級
+
+- 於網頁 UI「Firmware Update」區塊上傳 `.bin` 韌體，即可進行 OTA 升級（無需 USB 連接）。
+
+---
+
+## 常見問題
+
+**Q：如何恢復出廠設定？**  
+A：長按按鈕 10 秒即可清除所有設定並重啟。
+
+**Q：如何進入設定頁面？**  
+A：連續按下按鈕三次，即可進入 AP 模式。
+
+**Q：電池沒電會通知嗎？**  
+A：裝置會傳送 `low_battery` MQTT 訊息，Home Assistant 可自動提醒。
+
+**Q：支援哪些智慧家庭平台？**  
+A：支援所有支援 MQTT 的平台，如 Home Assistant、openHAB、Node-RED、Domoticz 等。
 
 ---
 
